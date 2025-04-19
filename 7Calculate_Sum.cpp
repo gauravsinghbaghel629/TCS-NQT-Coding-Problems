@@ -7,9 +7,11 @@ int main(){
 
     int sum = 0;
 
-    for(int i=0;i<n;i++){
-        sum += arr[i];
-    }
+    // for(int i=0;i<n;i++){
+    //     sum += arr[i];
+    // }
+
+    sum = accumulate(arr.begin(),arr.end(),0);
 
     cout<<sum;
 
