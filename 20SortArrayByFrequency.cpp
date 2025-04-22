@@ -1,38 +1,49 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-bool sortele(pair<int, int> a, pair<int, int> b)
-{
-  if (a.second == b.second)
-    return a.first < b.first;
-  return a.second > b.second;
-}
-void Sortelementsbyfreq(int arr[], int n)
-{
-  unordered_map<int, int> map;
-  for (int i = 0; i < n; i++)
-  {
-    map[arr[i]]++;
-  }
-  vector<pair<int, int>> vec;
-  for (auto it = map.begin(); it != map.end(); it++)
-  {
-    vec.push_back({it->first, it->second});
-  }
-  sort(vec.begin(), vec.end(), sortele);
-  for (int i = 0; i < vec.size(); i++)
-  {
-    while (vec[i].second > 0)
-    {
-      cout << vec[i].first << " ";
-      vec[i].second--;
+
+static bool sortele(pair<int,int> &a,pair<int,int> &b){
+    if(a.second == b.second){
+        return a.first < b.first;
     }
-  }
-  cout << endl;
+    return a.second > b.second;
 }
+
+
+vector<int> Sortelementsbyfreq(vector<int> &arr,int n){
+    unordered_map<int,int> mpp;
+
+    for(int i=0;i<n;i++){
+        mpp[arr[i]]++;
+    }
+
+    vector<pair<int,int>> v;
+
+    for(auto it : mpp){
+        v.push_back({it.first, it.second});
+    }
+
+    sort(v.begin(),v.end(),sortele);
+
+    vector<int> res;
+
+    for(int i=0;i<v.size();i++){
+        while(v[i].second > 0){
+            res.push_back(v[i].first);
+            v[i].second--;
+        }
+    }
+    return res;
+}
+
 int main()
 {
-  int arr[] = {3, 3, 5, 2, 1, 1, 2};
+  vector<int> arr = {3, 3, 5, 2, 1, 1, 2};
   int n = 7;
-  Sortelementsbyfreq(arr, n);
+  vector<int> ans = Sortelementsbyfreq(arr, n);
+
+  for(int i=0;i<n;i++){
+    cout<<ans[i]<<" ";
+  }
+
   return 0;
 }
