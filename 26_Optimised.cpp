@@ -2,47 +2,20 @@
 #include <iostream>
 using namespace std;
 
-// Function to check if a
-// given number is prime.
-bool checkPrime(int n){ 
-
-    // Initialize a counter variable to
-    // count the number of factors.
+bool checkPrime(int n){
     int cnt = 0;
 
-    // Loop through numbers from 1
-    // to the square root of n.
-    for(int i = 1; i <= sqrt(n); i++){ 
+    for(int i=1;i*i<=n;i++){
+        if(n % i == 0){
+            cnt++;
 
-        // If n is divisible by i
-        // without any remainder.
-        if(n % i == 0){ 
-
-            // Increment the counter.
-            cnt = cnt + 1;
-
-            // If n is not a perfect square,
-            // count its reciprocal factor.
-            if(n / i != i){
-                cnt = cnt + 1;
+            if(n/i != i){
+                cnt++;
             }
         }
     }
 
-    // If the number of
-    // factors is exactly 2.
-    if(cnt == 2){
-         // Return true, indicating
-         // that the number is prime.
-        return true;
-    }
-    // If the number of
-    // factors is not 2.
-    else{ 
-        // Return false, indicating
-        // that the number is not prime.
-        return false; 
-    }
+    return (cnt == 2);
 }
 
 
