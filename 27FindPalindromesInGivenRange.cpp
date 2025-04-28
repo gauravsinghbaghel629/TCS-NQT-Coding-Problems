@@ -6,11 +6,14 @@ bool isPalindrome(int n)
 {
     int ans = 0;
     int m = n;
-    while(n != 0) {
-        ans = (ans*10) + n%10;
-        n = n/10;
-    }
 
+    while(n != 0){
+        int digit = n % 10;
+
+        ans = (ans * 10) + digit;
+
+        n = n / 10;
+    }
     return (m == ans);
 }
  
