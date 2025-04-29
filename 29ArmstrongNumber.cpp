@@ -1,6 +1,8 @@
 #include<bits/stdc++.h> 
 using namespace std;
 
+//in VS its giving false, whereas its actually true
+
 bool isArmstrong(int n){
     int len = to_string(n).length();
 
