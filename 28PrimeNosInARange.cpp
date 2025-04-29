@@ -1,28 +1,28 @@
-#include <iostream>
-#include <math.h>
+#include<bits/stdc++.h>
 using namespace std;
-bool checkprime(int num)
-{
-  if (num == 1)
-    return false;
-  int i = 2;
-  for (i = 2; i < sqrt(num); i++)
-  {
-    if (num % i == 0)
-      return false;
-  }
-  return true;
-}
-void PrintPrimesbwrange(int a, int b)
-{
-  for (int i = a; i <= b; i++)
-  {
-    if (checkprime(i))
-    {
-      cout << i << " ";
+
+bool isPrime(int n){
+    int cnt = 0;
+
+    for(int i=1;i*i<=n;i++){
+        if(n % i == 0){
+            cnt++;
+
+            if(n/i != i) cnt++;
+        }
     }
-  }
+    return (cnt == 2);
 }
+
+void PrintPrimesbwrange(int a,int b){
+    for(int i=a;i<=b;i++){
+        if(isPrime(i)){
+            cout<<i<<" ";
+        }
+    }
+    return;
+}
+
 int main()
 {
   int a = 11, b = 17;
