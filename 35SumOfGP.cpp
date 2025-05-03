@@ -1,16 +1,19 @@
 #include <iostream>
 using namespace std;
+
+
 // Function to find sum of G.P. series
 float SumofGP(float a, float r, int n)
 {
   float sum = 0;
-  for (int i = 0; i < n; i++)
-  {
-    sum = sum + a;
-    a = a * r;
+
+  for(int i=1;i<=n;i++){
+    sum += a;
+    a *= r;
   }
   return sum;
 }
+
 int main()
 {
   float a = 2;     // First Term of G.P.
