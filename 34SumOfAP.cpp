@@ -3,8 +3,8 @@ using namespace std;
 
 float sumofAp(float a,float d,float n){
     float ans = n / 2.0;
-    ans = ans * (2.0 * a + (n-1) * d);
 
+    ans = ans * (2.0 * a + (n-1) * d);
     return ans;
 }
 
