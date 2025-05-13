@@ -1,14 +1,16 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-int factorial(int X) {
-   int ans = 1;
-   for (int i = 1; i <= X; i++) {
-      ans = ans * i;
-   }
-   return ans;
-}
-int main() {
-   int X = 5;
-   int result = factorial(X);
-   cout << "The factorial of " << X << " is " << result;
+
+int main(){
+    int n;
+    cin>>n;
+
+    int f = 1;
+    for(int i=1;i<=n;i++){
+        f = f * i;
+    }
+
+    cout<<"The factorial of all the numbers till n : "<<f<<endl;
+
+    return 0;
 }
