@@ -1,22 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main() {
-  int n = 5;
-  if (n == 0) {
-    cout << 0;
-  } else if (n == 1) {
-    cout << 0 << " " << 1 << "\n";
-  } else {
-    int fib[n + 1];
-    fib[0] = 0;
-    fib[1] = 1;
-    for (int i = 2; i <= n; i++) {
-      fib[i] = fib[i - 1] + fib[i - 2];
+int main(){
+    int n;
+    cin>>n;
+
+    if(n == 0) cout<<0;
+    else if(n == 1) cout<<0<<" "<<1<<endl;
+
+    int a = 0;
+    int b = 1;
+    int ans = -1;
+
+    cout<<"The Fibonacci Series upto n terms: "<<0<<" "<<1<<" ";
+
+    for(int i=2;i<=n;i++){
+        ans = a + b;
+        cout<<ans<<" ";
+
+        a = b;
+        b = ans;
     }
-    cout<<"The Fibonacci Series up to "<<n<<"th term:"<<endl;
-    for (int i = 0; i <= n; i++) {
-      cout << fib[i] << " ";
-    }
-  }
+
+    return 0;
 }
