@@ -1,77 +1,33 @@
-                                
-#include <bits/stdc++.h> 
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-// Function to check if a
-// given number is prime.
-bool checkPrime(int n){ 
-
-    // Initialize a counter variable to
-    // count the number of factors.
+bool isPrime(int n){
     int cnt = 0;
 
-    // Loop through numbers from 1
-    // to the square root of n.
-    for(int i = 1; i <= sqrt(n); i++){ 
+    for(int i=1;i*i<=n;i++){
+        if(n % i == 0){
+            cnt++;
 
-        // If n is divisible by i
-        // without any remainder.
-        if(n % i == 0){ 
-
-            // Increment the counter.
-            cnt = cnt + 1;
-
-            // If n is not a perfect square,
-            // count its reciprocal factor.
-            if(n / i != i){
-                cnt = cnt + 1;
+            if(n/i != i){
+                cnt++;
             }
         }
     }
 
-    // If the number of
-    // factors is exactly 2.
-    if(cnt == 2){
-         // Return true, indicating
-         // that the number is prime.
-        return true;
-    }
-    // If the number of
-    // factors is not 2.
-    else{ 
-        // Return false, indicating
-        // that the number is not prime.
-        return false; 
-    }
+    return (cnt == 2);
 }
 
-// Function to return a list of 
-// prime factors of input 'n'
 vector<int> getPrimeFactors(int n){ 
-    // Declare a vector to store
-    // the prime factors of n.
-    vector<int> primeFactors; 
-    
-    // Start a loop from 2 to n,
-    // iterating through each number i.
-    for(int i = 2; i<=n; i++){ 
-        // Check if n is divisible by
-        // i without any remainder.
-        if(n%i==0){ 
-            // If it is, call the
-            // function checkPrime to
-            // determine if i is prime.
-            if(checkPrime(i)){ 
-                // If i is prime, add it
-                // to the vector of prime factors.
-                primeFactors.push_back(i); 
+    vector<int> ans;
+
+    for(int i=2;i<=n;i++){
+        if(n % i == 0){
+            if(isPrime(i)){
+                ans.push_back(i);
             }
         }
     }
-    // Return the vector
-    // containing the prime factors of n.
-    return primeFactors; 
+    return ans;
 }
 
 
