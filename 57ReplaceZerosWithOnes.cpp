@@ -14,7 +14,7 @@ int replaceZeroesWithOnes(int num){
 
         ans = d * temp + ans;
         num = num / 10;
-        temp = temp / 10;
+        temp = temp * 10;
     }
 
     return ans;
@@ -22,7 +22,7 @@ int replaceZeroesWithOnes(int num){
 
 int main(){
     int n = 204;
-    int res = replaceZerosWithOnes(n);
+    int res = replaceZeroesWithOnes(n);
 
     cout<<"After replacing zeroes with ones "<<n<<" becomes "<<res<<endl;
 
